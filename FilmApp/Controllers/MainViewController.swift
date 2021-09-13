@@ -32,6 +32,11 @@ class MainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let xibCell = UINib(nibName: "FilmCollectionViewCell", bundle: nil)
+        mainCollectionview.register(xibCell, forCellWithReuseIdentifier: "filmCell")
+        mainCollectionview.reloadData()
+        
         mainCollectionview.delegate = self
         mainCollectionview.dataSource = self
         filmSearchbar.delegate = self
