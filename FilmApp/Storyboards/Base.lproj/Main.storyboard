@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Tp1-me-Kas">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="mFe-BS-2e2">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -154,7 +153,7 @@
         <!--Detail Film View Controller-->
         <scene sceneID="PQ1-J4-UTA">
             <objects>
-                <viewController id="Tp1-me-Kas" customClass="DetailFilmViewController" customModule="FilmApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DetailFilmViewControllerS" id="Tp1-me-Kas" customClass="DetailFilmViewController" customModule="FilmApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="i69-t3-qk8">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -272,11 +271,13 @@
                                             <constraint firstItem="4TZ-PD-SmZ" firstAttribute="top" secondItem="A9P-w8-3wV" secondAttribute="bottom" constant="20" id="McU-lN-SZF"/>
                                             <constraint firstItem="A9P-w8-3wV" firstAttribute="top" secondItem="5CZ-v3-2iC" secondAttribute="bottom" constant="30" id="PdE-ZH-qPI"/>
                                             <constraint firstAttribute="trailing" secondItem="iIv-yb-ExL" secondAttribute="trailing" constant="10" id="Qc0-7p-8cc"/>
+                                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="kee-1e-35j" secondAttribute="trailing" constant="20" symbolic="YES" id="RJX-K7-8DH"/>
                                             <constraint firstItem="A9P-w8-3wV" firstAttribute="leading" secondItem="sIc-cQ-cmm" secondAttribute="leading" constant="30" id="SMG-c6-wa4"/>
                                             <constraint firstItem="iIv-yb-ExL" firstAttribute="leading" secondItem="sIc-cQ-cmm" secondAttribute="leading" constant="10" id="Xww-XQ-nKR"/>
                                             <constraint firstItem="kee-1e-35j" firstAttribute="leading" secondItem="sIc-cQ-cmm" secondAttribute="leading" constant="30" id="l9I-W7-vKb"/>
                                             <constraint firstAttribute="trailing" secondItem="4TZ-PD-SmZ" secondAttribute="trailing" constant="10" id="uns-0s-iVw"/>
                                             <constraint firstItem="4TZ-PD-SmZ" firstAttribute="leading" secondItem="sIc-cQ-cmm" secondAttribute="leading" constant="10" id="vRH-rd-Ai0"/>
+                                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="A9P-w8-3wV" secondAttribute="trailing" constant="20" symbolic="YES" id="xZ8-F4-Wus"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -365,6 +366,9 @@
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="close" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1hQ-Pf-3hS">
                                 <rect key="frame" x="364" y="20" width="30" height="30"/>
+                                <connections>
+                                    <action selector="clossedButtonPressed:" destination="1Te-Rz-fwb" eventType="touchUpInside" id="dgD-Kb-MvE"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="WYg-G2-7I5"/>
