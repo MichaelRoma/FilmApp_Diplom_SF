@@ -1,13 +1,13 @@
 //
-//  FilmCollectionViewCell.swift
+//  FavoriteFilmCollectionViewCell.swift
 //  FilmApp
 //
-//  Created by Mykhailo Romanovskyi on 28.08.2021.
+//  Created by Mykhailo Romanovskyi on 03.10.2021.
 //
 
 import UIKit
 
-class FilmCollectionViewCell: UICollectionViewCell {
+class FavoriteFilmCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var posterPrevieImageView: UIImageView!
     @IBOutlet weak var filmTitleLable: UILabel!

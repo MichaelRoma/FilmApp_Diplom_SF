@@ -16,7 +16,7 @@ class PosterFullViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        posterImageView.image = UIImage(named: testArrey[detailIndex].testPic ?? "name1")
+        posterImageView.image = UIImage(named: Model().testArray[detailIndex].testPic ?? "name1")
     }
     
     @IBAction func clossedButtonPressed(_ sender: UIButton) {

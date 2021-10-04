@@ -17,7 +17,11 @@ class DetailFilmViewController: UIViewController, UIViewControllerTransitioningD
     
     @IBOutlet weak var descriptionLabel: UILabel!
     
+    var model = Model()
+    
     var receiverIndex: Int = Int()
+    
+    var cameFromFav: Bool = Bool()
     
     var transition: RoundingTransiction = RoundingTransiction()
     
@@ -26,13 +30,35 @@ class DetailFilmViewController: UIViewController, UIViewControllerTransitioningD
         
         collectionView.delegate = self
         collectionView.dataSource = self
+        if cameFromFav {
+            posterImageView.image = UIImage(named: Model().showLikedItems()[receiverIndex].testPic ?? "image1")
+            filmTitleLabel.text = Model().showLikedItems()[receiverIndex].testTitle
+            releaseYearLabel.text = String(Model().showLikedItems()[receiverIndex].testYear ?? 0)
+            ratingLabel.text = String(Model().showLikedItems()[receiverIndex].testRating ?? 0)
+        } else {
+            posterImageView.image = UIImage(named: Model().testArray[receiverIndex].testPic ?? "image1")
+            filmTitleLabel.text = Model().testArray[receiverIndex].testTitle
+            releaseYearLabel.text = String(Model().testArray[receiverIndex].testYear ?? 0)
+            ratingLabel.text = String(Model().testArray[receiverIndex].testRating ?? 0)
+        }
         
-        posterImageView.image = UIImage(named: testArrey[receiverIndex].testPic ?? "image1")
-        filmTitleLabel.text = testArrey[receiverIndex].testTitle
-        releaseYearLabel.text = testArrey[receiverIndex].testYear
-        ratingLabel.text = testArrey[receiverIndex].testRating
+    navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "heart"),
+                                                            style: .plain,
+                                                            target: self,
+                                                            action: #selector(likeButtonAction))
+        if model.testArray[receiverIndex].isLiked == true {
+            let heart = UIImage(systemName: "heart.fill")
+            navigationItem.rightBarButtonItem?.image = heart
+        } else {
+            let heart = UIImage(systemName: "heart")
+            navigationItem.rightBarButtonItem?.image = heart
+        }
     }
     
+    @objc private func likeButtonAction() {
+        
+        print("Like")
+    }
     
     @IBAction func tapGestureAction(_ sender: UITapGestureRecognizer) {
         print("Hello")
@@ -49,7 +75,7 @@ class DetailFilmViewController: UIViewController, UIViewControllerTransitioningD
     
     func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         transition.transitionProfile = .cancel
-      //  transition.start = posterImageView.center
+        //  transition.start = posterImageView.center
         transition.start = CGPoint(x: posterImageView.center.x, y: posterImageView.center.y + 70)
         transition.roundColor = UIColor.lightGray
         return transition
@@ -58,7 +84,7 @@ class DetailFilmViewController: UIViewController, UIViewControllerTransitioningD
     func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         transition.transitionProfile = .show
         transition.start = CGPoint(x: posterImageView.center.x, y: posterImageView.center.y + 70)
-      //  transition.start = posterImageView.center
+        //  transition.start = posterImageView.center
         transition.roundColor = UIColor.lightGray
         return transition
     }
